@@ -24,6 +24,12 @@ Perhaps famous last words: but I really, truly hope that I've put together an en
 
 Any problems, please do contact me.
 
+### Important notes for CrewAI week (Week 3)
+
+1. There are two ways that you can work on the CrewAI project in week 3. Either review the code for each project while I build it, and then do `crewai run` to see it in action. Or if you prefer to be more hands-on, then create your own Crew project from scratch to mirror mine; for example, create `my_debate` to go alongside `debate`, and write the code alongside me. Either approach works!  
+2. It's possible that you will need to run this command in a Cursor Terminal in order to run the Crew commands: `uv tool install crewai`   
+3. Windows users: there's a new issue that was recently introduced by one of Crew's libraries. Until this is fixed, you might get a "unicode" error when you try to run `crewai create crew`.  If that happens, please try running this command in the Terminal first: `$env:PYTHONUTF8 = "1"`  
+
 ### Super useful resources
 
 - The course [resources](https://edwarddonner.com/2025/04/21/the-complete-agentic-ai-engineering-course/) with videos
@@ -34,7 +40,7 @@ Any problems, please do contact me.
 
 This course does involve making calls to OpenAI and other frontier models, requiring an API key and a small spend, which we set up in the SETUP instructions. If you'd prefer not to spend on API calls, there are cheaper alternatives like DeepSeek and free alternatives like using Ollama!
 
-Details are [here](guides/09_ai_apis_and_ollama).
+Details are [here](guides/09_ai_apis_and_ollama.ipynb).
 
 Be sure to monitor your API costs to ensure you are totally happy with any spend. For OpenAI, the dashboard is [here](https://platform.openai.com/usage).
 

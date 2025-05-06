@@ -38,13 +38,13 @@ T1. **Install Git** (if not already installed):
 3. **Navigate to your projects folder:**
 
 If you have a specific folder for projects, navigate to it using the cd command. For example:  
-`cd C:\Users\YourUsername\Documents\Projects`  
+`cd C:\Users\YourUsername\projects`  
 Replacing YourUsername with your actual Windows user
 
 If you don't have a projects folder, you can create one:
 ```
-mkdir C:\Users\YourUsername\Documents\Projects
-cd C:\Users\YourUsername\Documents\Projects
+mkdir C:\Users\YourUsername\projects
+cd C:\Users\YourUsername\projects
 ```
 
 4. **Clone the repository:**
@@ -62,7 +62,18 @@ This creates a new directory `agents` within your Projects folder and downloads 
 2. Click Sign In on the top right, then Sign Up, to create your account
 3. Download and follow its instructions to install and open Cursor
 
-After you start Cursor, you can pick the defaults for all its questions. When it's time to open the project in Cursor, go into the directory called "Agents" and select Open, and Cursor should open with each of the weeks in the file explorer on the left.
+After you start Cursor, you can pick the defaults for all its questions.  
+When it's time to open the project in Cursor:  
+1. Launch Cursor, if it's not already running  
+2. File menu >> New Window  
+3. Click "Open project"  
+4. Navigate into the project root directory called `agents` (probably within projects) and click Open
+5. When your project opens, you may be prompted to "install recommended extensions" for Python and Jupyter. If so, choose Yes! Otherwise:
+- Open extensions (View >> extensions)
+- Search for python, and when the results show, click on the ms-python one, and Install it if not already installed
+- Search for jupyter, and when the results show, click on the Microsoft one, and Install it if not already installed
+
+Now open the Explorer (View >> Explorer) and Cursor should show each of the weeks in the file explorer on the left.
 
 ### Part 3: The amazing `uv`
 
@@ -79,7 +90,9 @@ Type `pwd` to see the current directory, and check you are in the 'agents' direc
 
 And now simply run:  
 `uv sync`  
-And marvel at the speed and reliability! If necessary, uv should install python 3.12, and then it should install all the packages.
+And marvel at the speed and reliability! If necessary, uv should install python 3.12, and then it should install all the packages.  
+If you get an error about "invalid certificate" while running `uv sync`, then please try this instead:  
+`uv --native-tls sync`  
 
 ### Part 4: OpenAI Key
 
@@ -87,7 +100,10 @@ This is OPTIONAL - there's no need to spend money on APIs if you don't want to.
 
 But it is strongly recommended for the best performance of your Agentic system.
 
-If you have concerns about API costs and would prefer to use cheap or free alternatives, please see [this guide](../guides/09_ai_apis_and_ollama.ipynb)
+If you have concerns about API costs and would prefer to use cheap or free alternatives, please see [this guide](../guides/09_ai_apis_and_ollama.ipynb)  
+This includes instructions for using OpenRouter instead of OpenAI, which may have a more convenient billing system for some countries.
+
+For OpenAI:
 
 1. Create an OpenAI account if you don't have one by visiting:  
 https://platform.openai.com/
@@ -142,7 +158,13 @@ Hopefully you're now the proud owner of your very own `.env` file with your key 
 
 ## And that's it!!
 
-To get started in Cursor, open the directory called `1_foundations` in the explorer on the left, and double click on `1_lab1.ipynb` to launch the first lab. Click where it says "Select Kernel" near the top right, and select the option called `.venv (Python 3.12.9)` or similar, which should be the first choice or the most prominent choice. Then click in the first cell with code, and press Shift + Enter to execute it.
+To get started in Cursor, check that you've installed the Python and Jupyter extensions as described in Part 2 above. Then, open the directory called `1_foundations` in the explorer on the left, and double click on `1_lab1.ipynb` to launch the first lab. Click where it says "Select Kernel" near the top right, and select the option called `.venv (Python 3.12.9)` or similar, which should be the first choice or the most prominent choice (you might need to click 'Python Environments' first). Then click in the first cell with code, and press Shift + Enter to execute it.
+
+After you click "Select Kernel", if there is no option like `.venv (Python 3.12.9)` then please do the following:  
+1. From the Cursor menu, choose Settings >> VSCode Settings (NOTE: be sure to select `VSCode Settings` not `Cursor Settings`)  
+2. In the Settings search bar, type "venv"  
+3. In the field "Path to folder with a list of Virtual Environments" put the path to the project root, like C:\Users\username\projects\agents
+And then try again.
 
 If you have any problems, I've included a Guide called [troubleshooting.ipynb](troubleshooting.ipynb) to figure it out.
 
